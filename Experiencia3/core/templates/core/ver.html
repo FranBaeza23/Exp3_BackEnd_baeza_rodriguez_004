@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+       
+
+</head>
+<body>
+       <div class="row">
+            <h1>Mostrando publicacion</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">correo/th>
+                    <th scope="col">detalles</th>
+                    <th scope="col">categoria</th>
+                    <th scope="col"></th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {%for pu in publicacion%}
+                    <tr>
+                        <td>{{pu.nombre}}</td>
+                        <td>{{pu.correo}}</td>
+                        <td>{{pu.detalles}}</td>
+                        <td><a href="{% url 'form_mod_publicacion' pu.correo%}" class="btn btn-primary">Modificar  </a></td>
+                        <td><a href="{% url 'form_del_publicacion' pu.correo%}" class="btn btn-danger">Eliminar </a></td>
+                    </tr>
+                {%endfor%}
+
+            </tbody>
+
+        </table>
+
+ </body>
+</html>
