@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Monedas</title>
+    
+
+    <script type="text/javascript">
+      $(document).ready(function()
+      {
+          $("#solicitar").click(function(){
+
+              $.get("https://mindicador.cl/api",
+                  function(data){
+                      
+                      $.each(data,function(i,item){
+                          $("#monedas").append("<tr><td>"+item.codigo+"</td><td>"+item.nombre +
+                          "</td><td>"+ item.valor+ "</td><td>" + item.fecha + "</td></tr>");
+                          
+
+                      });
+
+                  });
+          });
+      })
+  </script>
+  <style>
+      #caja{
+          margin-left:40px;
+      }
+  </style>
+
+</head>
+<body>
+   <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- logo -->
+      <a class="navbar-brand" href="#">
+        <img src="img/logo.png" width="30" height="30" alt="">
+      </a>
+      
+      <!-- enlaces -->
+      <div class="collapse navbar-collapse" id="opciones">   
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="QS.html">Quienes somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Publicacion.html">Publicar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Registro.html">Registrar</a>
+          </li>            
+        </ul>
+      </div>
+    </nav>
+    <h1>Consumo de API Tipos de Monedas </h1>
+    <hr>
+    <div id="caja">
+        <button type="button" id="solicitar">Solicitar Tipos de Monedas</button>
+        
+    </div>
+    <br><br>
+
+    <table class="table" id="monedas">
+        <thead>
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>    
+</body>
+<br>
+<footer id="fh5co-footer" class="fh5co-bg" role="contentinfo">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row row-pb-md">
+        <div class="col-md-4 fh5co-widget">
+          <h3>Swall.</h3>
+          <p style="color: white;">Foro de temas de interes 
+          por Francisco Baeza y Alexis Rodriguez</p>
+          <p><a class="btn btn-primary" href="#">Donaciones</a></p>
+        </div>
+        <div class="col-md-8">
+          <h3>Redes sociales</h3>
+          <a href="https://www.instagram.com/cristiano/"><img src="img/instagrampng.png" width="90xp" height="90xp"></a>
+          <a href="https://es-la.facebook.com/Cristiano"><img src="img/facepng.png" width="75xp" height="75xp"></a>
+        </div>
+      </div>
+      <div class="row copyright">
+        <div class="col-md-12 text-center">
+          <p>
+            <small style="color: white;" class="block">&copy; 2021 | Todos los derechos reservados.</small> 
+            <small style="color: white;" class="block">Swall</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>      
+</html>
