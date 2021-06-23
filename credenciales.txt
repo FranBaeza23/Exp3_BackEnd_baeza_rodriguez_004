@@ -1,0 +1,14 @@
+superuser que se creo
+
+admin
+
+Aleroji20	
+
+
+codigo de sql para crear tablas
+
+create user c##prueba002 identified by prueba;
+
+grant connect, resource to c##prueba002;
+
+alter user c##prueba002 default tablespace users quota unlimited on users;
